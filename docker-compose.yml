@@ -1,0 +1,62 @@
+version: '3'
+services:
+
+  #PHP Service
+  squarehouse:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: phpdockerio/php73-fpm
+    container_name: squarehouse
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: squarehouse
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - squarehouse-network
+  #Nginx Service
+  squarehouse-webserver:
+    image: nginx:alpine
+    container_name: squarehouse-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "9090:80"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - squarehouse-network
+
+  #MySQL Service
+  squarehouse-db:
+    image: mysql:5.7.22
+    container_name: squarehouse-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: squarehouse
+      MYSQL_ROOT_PASSWORD: squarehouse
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - squarehouse-network
+
+
+#Docker Networks
+networks:
+  squarehouse-network:
+    driver: bridge
+#Volumes
+volumes:
+  squarehouse-backend-dbdata:
+    driver: local
