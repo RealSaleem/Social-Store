@@ -1,4 +1,4 @@
-# mall-of-turkey
+# Social Store
 Development GuideLine
 ---------------------
 
