@@ -1,0 +1,15 @@
+1. create new laravel project.
+2. install npm [npm install && npm run dev]. 
+3. run this command  [composer require laravel/ui] if there is any issue run [composer update]
+4. next run this command [php artisan ui vue --auth].if any issue use this:
+       laravel new cms
+       cd cms
+       php artisan migrate
+       composer require laravel/ui
+       npm install
+       php artisan ui vue --auth
+       npm install && npm run dev
+5. create database and define in .env file
+6. run this [php artisan config:cache]
+7. run this [php artisan cache:clear]
+8. run this [php artisan migrate]
