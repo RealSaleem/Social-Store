@@ -22,4 +22,6 @@ Route::post('login', 'App\Http\Controllers\API\AppUserController@login');
 Route::post('register', 'App\Http\Controllers\API\AppUserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'App\Http\Controllers\API\AppUserController@details');
+Route::post('contact', 'App\Http\Controllers\API\ContactController@contactus');
+Route::post('reporteduser', 'App\Http\Controllers\API\ReportedUsersController@reporteduser');
 });

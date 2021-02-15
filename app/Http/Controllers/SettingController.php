@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\CreateUserRequest;
-use App\Http\Requests\User\GetAllUserRequest;
-use App\Http\Requests\User\UpdateUserRequest;
-use App\Models\API\AppUser;
-use App\Models\Category;
-use App\Models\Country;
+use App\Http\Requests\Setting\CreateSettingRequest;
+use App\Http\Requests\Setting\GetAllSettingRequest;
+use App\Http\Requests\Setting\UpdateSettingRequest;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(GetAllUserRequest $request)
+    public function index(GetAllSettingRequest $request)
     {
-        $appusers = $request->handle();
-        // dd($appusers);
-        return view('user.index' , compact('appusers'));
+        $setting = $request->handle();
+        return view('setting.index', compact('setting'));
     }
 
     /**
@@ -31,9 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $countries = Country::get();
-        $categories = Category::get();
-        return view('user.form.create', compact('countries' , 'categories'));
+        return view('setting.form.create');
     }
 
     /**
@@ -42,11 +37,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateUserRequest $request)
+    public function store(CreateSettingRequest $request)
     {
         $request->handle();
-        // dd($request);
-        return redirect()->route('user.index')->withSucccess('Record Has Been Added Successfully');
+        return redirect()->route('setting.index')->withSuccess('Record Has Been Added Successfully');
     }
 
     /**
@@ -57,7 +51,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      
+        //
     }
 
     /**
@@ -68,10 +62,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $countries = Country::get();
-        $categories = Category::get();
-        $appusers = AppUser::where('id' , $id)->first();
-        return view('user.form.edit' , compact('appusers' , 'countries' , 'categories'));
+        $setting = Setting::where('id' , $id)->first();
+        return view('setting.form.edit', compact('setting'));
     }
 
     /**
@@ -81,12 +73,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(UpdateSettingRequest $request, $id)
     {
         $request['id'] = $id;
         $request->handle();
-
-        return redirect()->route('user.index')->with('success' , "record has been updated successfully" );
+        return redirect()->route('setting.index')->with('success' , 'Record has been updated successfully');
     }
 
     /**
@@ -97,9 +88,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $appusers = AppUser::find($id);
-        \App\Helpers\Helper::deleteAttachment($appusers->image);
-        $appusers->delete();
-        return redirect()->route('user.index');
+        //
     }
 }

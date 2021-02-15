@@ -45,7 +45,7 @@ class CreateUserRequest extends FormRequest
         $appusers->first_name = $params['first_name'];
         $appusers->last_name = $params['last_name'];
         $appusers->email = $params['email'];
-        $appusers->password = $params['password'];
+        $appusers->password = bcrypt($params['password']);
         $appusers->phone = $params['phone'];
         $appusers->country_id = $params['country_id'];
         $appusers->category_id = $params['category_id'];

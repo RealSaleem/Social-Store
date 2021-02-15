@@ -50,13 +50,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('country.index')}}" class="nav-link {{(request()->is('country*')) ? 'active' : ''}}">
+                    <a href="{{route('notification.index')}}" class="nav-link {{(request()->is('notification*')) ? 'active' : ''}}">
                         <i class="icon-bubbles3"></i>
                         <span>
                             {{trans('site.notifications')}}
                         </span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('reportedusers.index')}}" class="nav-link {{(request()->is('reportedusers*')) ? 'active' : ''}}">
+                        <i class="icon-user-cancel"></i>
+                        <span>
+                            {{trans('site.reported_users')}}
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('contact.index')}}" class="nav-link {{(request()->is('contact*')) ? 'active' : ''}}">
+                        <i class="icon-address-book"></i>
+                        <span>
+                            {{trans('site.contact_us')}}
+                        </span>
+                    </a>
+                </li>
+        
                 <li class="nav-item">
                     <a href="{{route('about.index')}}" class="nav-link {{(request()->is('about*')) ? 'active' : ''}}">
                         <i class="icon-bubble-notification"></i>
@@ -78,6 +95,14 @@
                         <i class="icon-book2"></i>
                         <span>
                             {{trans('site.terms_conditions')}}
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('setting.index')}}" class="nav-link {{(request()->is('setting*')) ? 'active' : ''}}">
+                        <i class="icon-cogs"></i>
+                        <span>
+                            {{trans('site.settings')}}
                         </span>
                     </a>
                 </li>

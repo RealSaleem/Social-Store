@@ -4,7 +4,7 @@
 <div class="page-header page-header-light">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-users4"></i> <span class="font-weight-semibold">{{trans('site.app_users')}}</h4>
+            <h4><i class="icon-address-book"></i> <span class="font-weight-semibold">{{trans('site.contact_us')}}</h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
     </div>
@@ -19,63 +19,68 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="actions mb-2">
-                <div class="text-right">
-                    <a class="btn btn-primary" href="{{route('user.create')}}"><i class="icon-users4"></i> &nbsp; {{trans('site.add_app_user')}}</a>
+                <div class="text-right" hidden>
+                    <a class="btn btn-primary" href="{{route('contact.create')}}"><i class="icon-address-book"></i> &nbsp; {{trans('site.add_contact_us')}}</a>
                 </div>
             </div>
+            <div class="panel-body">
+                <form action="{{url('/contact')}}">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="status">{{trans('site.select_status')}}</label>
+                        <select name="status" class="form-control">
+                            <option value="">{{trans('site.all')}}</option>
+                            <option value="new" {{request()->input('status') == 'new' ? 'selected' : null}}> {{trans('site.new')}}</option>
+                            <option value="viewed" {{request()->input('status') == 'viewed' ? 'selected' : null}}> {{trans('site.viewed')}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary mt-4 mb-4" value="Filter">
+                    </div>
+                    </div>
+                </form>
+            
+            </div>
             <div class="card">
-                <div class="table-responsive">
-                    <table class="table datatable-basic table-bordered">
-                        <thead>
-                            <tr>
-                                <th>{{trans('site.id')}}</th>
-                                <th>{{trans('site.user_name')}}</th>
-                                <th>{{trans('site.first_name')}}</th>
-                                <th>{{trans('site.last_name')}}</th>
-                                <th>{{trans('site.email')}}</th>
-                                <th>{{trans('site.image')}}</th>
-                                <th>{{trans('site.phone')}}</th>
-                                <th>{{trans('site.country')}}</th>
-                                <th>{{trans('site.category')}}</th>
-                                <!-- <th>{{trans('site.created_at')}}</th> -->
-                                <th class="text-center">{{trans('site.action')}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($appusers as $user)
-                            <tr>
-                                <td>{{$user->id}}</td>
-                                <td>{{$user->user_name}}</td>
-                                <td>{{$user->first_name}}</td>
-                                <td>{{$user->last_name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td><img src="{{asset('storage/'.$user->image)}}" style="width: 100px; height: auto;" /></td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->country->name_en}}</td>
-                                <td>{{$user->category->name_en}}</td>
-                                <!-- <td>{{date('d M Y h:i:s A',strtotime($user->created_at))}}</td> -->
-                                <td class="text-center">
-                                    <div class="list-icons">
-                                        <div class="dropdown">
-                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                                <i class="icon-menu9"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a href="{{route('user.edit',$user->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_app_user')}}</a>
-                                                <form action="{{route('user.destroy', $user->id)}}" method="POST" class="delete-record">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button type="submit" class="dropdown-item"><i class="icon-bin"></i> {{trans('site.delete_app_user')}}</button>
-                                                </form>
-                                            </div>
+                <table class="table datatable-basic table-bordered">
+                    <thead>
+                        <tr>
+                            <th>{{trans('site.submission_id')}}</th>
+                            <th>{{trans('site.Submission_date_time')}}</th>
+                            <th>{{trans('site.customer_name')}}</th>
+                            <th>{{trans('site.email')}}</th>
+                            <th>{{trans('site.phone')}}</th>
+                            <th>{{trans('site.status')}}</th>
+                            <th>{{trans('site.message')}}</th>
+                            <th class="text-center">{{trans('site.action')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($contacts as $contact)
+                        <tr>
+                            <td>{{$contact->id}}</td>
+                            <td>{{date('d M Y h:i:s A',strtotime($contact->created_at))}}</td>
+                            <td>{{$contact->customer_name}}</td>
+                            <td>{{$contact->email}}</td>
+                            <td>{{$contact->phone}}</td>
+                            <td>{{$contact->status}}</td>
+                            <td>{{$contact->message}}</td>
+                            <td class="text-center">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="{{route('contact.edit',$contact->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_contact_us')}}</a>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -110,7 +115,7 @@
                 columnDefs: [{
                     orderable: false,
                     width: 100,
-                    targets: [9]
+                    targets: [7]
                 }],
                 dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
                 language: {

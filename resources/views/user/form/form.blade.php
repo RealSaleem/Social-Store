@@ -29,7 +29,8 @@
 </div>
 <label>{{trans('site.password')}} :</label>
 <div class="form-group form-group-feedback form-group-feedback-right">
-    <input id="password-field" type="password" name="password" class="form-control" placeholder="{{trans('site.enter_password')}}" value="{{old('password', isset($appusers) ? $appusers->password : null)}}">
+<!-- value="{{old('password', isset($appusers) ? $appusers->password : null)}}" -->
+    <input id="password-field" type="password" name="password" class="form-control" placeholder="{{trans('site.enter_password')}}">
     <div class="form-control-feedback form-control-feedback-sm">
         <span toggle="#password-field" class="icon-eye field-icon toggle-password"></span>
     </div>
@@ -45,10 +46,12 @@
 </div>
 <div class="form-group">
     <label>{{trans('site.select_country')}} :</label>
+
+  
     <select class="form-control form-control-select2" name="country_id">
         <option value="">{{trans('site.select')}}</option>
         @foreach($countries as $country)
-        <option value="{{$country->id}}">{{$country->name_en}}</option>
+        <option value="{{$country->id}}" {{ isset($appusers) && ( $appusers->country_id == $country->id) ? 'Selected' : ''}} >{{$country->name_en}}</option>
         @endforeach
     </select>
 </div>
@@ -57,7 +60,7 @@
     <select class="form-control form-control-select2" name="category_id">
         <option value="">{{trans('site.select')}}</option>
         @foreach($categories as $category)
-        <option value="{{$category->id}}">{{$category->name_en}}</option>
+        <option value="{{$category->id}}" {{ isset($appusers) && ( $appusers->category_id == $category->id) ? 'Selected' : ''}} >{{$category->name_en}}</option>
         @endforeach
     </select>
 </div>

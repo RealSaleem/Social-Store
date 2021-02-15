@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Notification;
 
-use App\Models\API\AppUser;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetAllUserRequest extends FormRequest
+class UpdateNotificationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class GetAllUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -27,14 +26,5 @@ class GetAllUserRequest extends FormRequest
         return [
             //
         ];
-    }
-
-    public function handle()
-    {
-        $user = AppUser::with('country');
-        if(isset($this->user_id)){
-            $user = $user->where('id', $this->user_id);
-        }
-        return $user->get();
     }
 }

@@ -27,6 +27,10 @@ Route::resource('terms', 'App\Http\Controllers\TermsConditionsController')->name
 Route::resource('category', 'App\Http\Controllers\CategoryController')->name('*','category');
 Route::resource('country', 'App\Http\Controllers\CountryController')->name('*','country');
 Route::resource('user', 'App\Http\Controllers\UserController')->name('*','user');
+Route::resource('contact', 'App\Http\Controllers\ContactController')->name('*','contact');
+Route::resource('notification', 'App\Http\Controllers\NotificationController')->name('*','notification');
+Route::resource('reportedusers', 'App\Http\Controllers\ReportedUsersController')->name('*','reportedusers');
+Route::resource('setting', 'App\Http\Controllers\SettingController')->name('*','setting');
 
 
 

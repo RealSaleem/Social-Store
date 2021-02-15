@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Contact;
 
-use App\Models\API\AppUser;
+use App\Models\API\Contact;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetAllUserRequest extends FormRequest
+class GetAllContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,10 +31,15 @@ class GetAllUserRequest extends FormRequest
 
     public function handle()
     {
-        $user = AppUser::with('country');
-        if(isset($this->user_id)){
-            $user = $user->where('id', $this->user_id);
-        }
-        return $user->get();
+    //    $contact = request('status');
+
+       $contact = request('status');
+       if ($contact) {
+        return Contact::where('status' ,$contact)->get();
+       }
+       else {
+        return Contact::all();
+       }
+        
     }
 }

@@ -31,9 +31,9 @@ class UpdateUserRequest extends FormRequest
             'email' =>  ['required'],
             'password'  =>  ['required','string','min:6','regex:/^(?=.*?[#?!@$.%^&*-]).{6,}$/'],
             'phone' =>  ['required'],
-            // 'country_id'    =>  ['required'],
-            // 'category_id'   =>  ['required'],
-            // 'image' =>  ['required'],
+            'country_id'    =>  ['required'],
+            'category_id'   =>  ['required'],
+            'image' =>  ['required'],
         ];
     }
 
@@ -50,8 +50,8 @@ class UpdateUserRequest extends FormRequest
         $appusers->email = $params['email'];
         $appusers->password = $params['password'];
         $appusers->phone = $params['phone'];
-        // $appusers->country_id = $params['country_id'];
-        // $appusers->category_id = $params['category_id'];
+        $appusers->country_id = $params['country_id'];
+        $appusers->category_id = $params['category_id'];
        
      
         if($this->hasFile('image') && isset($params['image']))
