@@ -25,62 +25,64 @@
             </div>
             <div class="panel-body">
                 <form action="{{url('/contact')}}">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="status">{{trans('site.select_status')}}</label>
-                        <select name="status" class="form-control">
-                            <option value="">{{trans('site.all')}}</option>
-                            <option value="new" {{request()->input('status') == 'new' ? 'selected' : null}}> {{trans('site.new')}}</option>
-                            <option value="viewed" {{request()->input('status') == 'viewed' ? 'selected' : null}}> {{trans('site.viewed')}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="btn btn-primary mt-4 mb-4" value="Filter">
-                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="status">{{trans('site.select_status')}}</label>
+                            <select name="status" class="form-control">
+                                <option value="">{{trans('site.all')}}</option>
+                                <option value="new" {{request()->input('status') == 'new' ? 'selected' : null}}> {{trans('site.new')}}</option>
+                                <option value="viewed" {{request()->input('status') == 'viewed' ? 'selected' : null}}> {{trans('site.viewed')}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="btn btn-primary mt-4 mb-4" value="Filter">
+                        </div>
                     </div>
                 </form>
-            
+
             </div>
             <div class="card">
-                <table class="table datatable-basic table-bordered">
-                    <thead>
-                        <tr>
-                            <th>{{trans('site.submission_id')}}</th>
-                            <th>{{trans('site.Submission_date_time')}}</th>
-                            <th>{{trans('site.customer_name')}}</th>
-                            <th>{{trans('site.email')}}</th>
-                            <th>{{trans('site.phone')}}</th>
-                            <th>{{trans('site.status')}}</th>
-                            <th>{{trans('site.message')}}</th>
-                            <th class="text-center">{{trans('site.action')}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($contacts as $contact)
-                        <tr>
-                            <td>{{$contact->id}}</td>
-                            <td>{{date('d M Y h:i:s A',strtotime($contact->created_at))}}</td>
-                            <td>{{$contact->customer_name}}</td>
-                            <td>{{$contact->email}}</td>
-                            <td>{{$contact->phone}}</td>
-                            <td>{{$contact->status}}</td>
-                            <td>{{$contact->message}}</td>
-                            <td class="text-center">
-                                <div class="list-icons">
-                                    <div class="dropdown">
-                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{route('contact.edit',$contact->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_contact_us')}}</a>
+                <div class="table-responsive">
+                    <table class="table datatable-basic table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{trans('site.submission_id')}}</th>
+                                <th>{{trans('site.Submission_date_time')}}</th>
+                                <th>{{trans('site.customer_name')}}</th>
+                                <th>{{trans('site.email')}}</th>
+                                <th>{{trans('site.phone')}}</th>
+                                <th>{{trans('site.status')}}</th>
+                                <th>{{trans('site.message')}}</th>
+                                <th class="text-center">{{trans('site.action')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($contacts as $contact)
+                            <tr>
+                                <td>{{$contact->id}}</td>
+                                <td>{{date('d M Y h:i:s A',strtotime($contact->created_at))}}</td>
+                                <td>{{$contact->customer_name}}</td>
+                                <td>{{$contact->email}}</td>
+                                <td>{{$contact->phone}}</td>
+                                <td>{{$contact->status}}</td>
+                                <td>{{$contact->message}}</td>
+                                <td class="text-center">
+                                    <div class="list-icons">
+                                        <div class="dropdown">
+                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="{{route('contact.edit',$contact->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_contact_us')}}</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -105,6 +105,20 @@ return[
     'social_media_links'            =>  'Social Media Links',
     'promotion_price'               =>  'Promotion Price',
     'enter_promotion_price'         =>  'Enter Price',
-
+    'ads'                           =>  'Ads',
+    'product_name'                  =>  'Product Name',
+    'price'                         =>  'Price',
+    'description'                   =>  'Description',
+    'type'                          =>  'Type',
+    'add_ads'                       =>  'Add Ads',
+    'enter_product_name'            =>  'Enter Product Name',
+    'enter_price'                   =>  'Enter Price',
+    'normal'                        =>  'Normal',
+    'promoted'                      =>  'Promoted',
+    'edit_ads'                      =>  'Edit Ads',
+    'delete_ads'                    =>  'Delete Ads',
+    'duration_days'                 =>  'Duration (in days)',
+    'enter_duration'                =>  'Enter Duration',
+    'days'                          =>  'Days',
 ]
 ?>

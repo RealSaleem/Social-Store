@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 <style>
-.table.datatable-basic tr th{
-    width: 25%;
-}
+    .table.datatable-basic tr th {
+        width: 25%;
+    }
+
+    table a {
+        color: #0c0638 !important;
+    }
+
+    table a:hover {
+        color: #2196f3 !important;
+    }
 </style>
 
 

@@ -24,4 +24,5 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'App\Http\Controllers\API\AppUserController@details');
 Route::post('contact', 'App\Http\Controllers\API\ContactController@contactus');
 Route::post('reporteduser', 'App\Http\Controllers\API\ReportedUsersController@reporteduser');
+Route::post('ads', 'App\Http\Controllers\API\AdsController@ads');
 });

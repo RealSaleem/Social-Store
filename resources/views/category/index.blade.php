@@ -24,46 +24,48 @@
                 </div>
             </div>
             <div class="card">
-                <table class="table datatable-basic table-bordered">
-                    <thead>
-                        <tr>
-                            <th>{{trans('site.id')}}</th>
-                            <th>{{trans('site.name_en')}}</th>
-                            <th>{{trans('site.name_ar')}}</th>
-                            <th>{{trans('site.image')}}</th>
-                            <!-- <th>{{trans('site.created_at')}}</th> -->
-                            <th class="text-center">{{trans('site.action')}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($categories as $category)
-                        <tr>
-                            <td>{{$category->id}}</td>
-                            <td>{{$category->name_en}}</td>
-                            <td>{{$category->name_ar}}</td>
-                            <td><img src="{{asset('storage/'.$category->image)}}" style="width: 100px; height: auto;" /></td>
-                            <!-- <td>{{date('d M Y h:i:s A',strtotime($category->created_at))}}</td> -->
-                            <td class="text-center">
-                                <div class="list-icons">
-                                    <div class="dropdown">
-                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{route('category.edit',$category->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_category')}}</a>
-                                            <form action="{{route('category.destroy', $category->id)}}" method="POST" class="delete-record">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="dropdown-item"><i class="icon-bin"></i> {{trans('site.delete_category')}}</button>
-                                            </form>
+                <div class="table-responsive">
+                    <table class="table datatable-basic table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{trans('site.id')}}</th>
+                                <th>{{trans('site.name_en')}}</th>
+                                <th>{{trans('site.name_ar')}}</th>
+                                <th>{{trans('site.image')}}</th>
+                                <!-- <th>{{trans('site.created_at')}}</th> -->
+                                <th class="text-center">{{trans('site.action')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($categories as $category)
+                            <tr>
+                                <td>{{$category->id}}</td>
+                                <td>{{$category->name_en}}</td>
+                                <td>{{$category->name_ar}}</td>
+                                <td><img src="{{asset('storage/'.$category->image)}}" style="width: 100px; height: auto;" /></td>
+                                <!-- <td>{{date('d M Y h:i:s A',strtotime($category->created_at))}}</td> -->
+                                <td class="text-center">
+                                    <div class="list-icons">
+                                        <div class="dropdown">
+                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="{{route('category.edit',$category->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_category')}}</a>
+                                                <form action="{{route('category.destroy', $category->id)}}" method="POST" class="delete-record">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item"><i class="icon-bin"></i> {{trans('site.delete_category')}}</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

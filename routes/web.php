@@ -31,6 +31,7 @@ Route::resource('contact', 'App\Http\Controllers\ContactController')->name('*','
 Route::resource('notification', 'App\Http\Controllers\NotificationController')->name('*','notification');
 Route::resource('reportedusers', 'App\Http\Controllers\ReportedUsersController')->name('*','reportedusers');
 Route::resource('setting', 'App\Http\Controllers\SettingController')->name('*','setting');
+Route::resource('ads', 'App\Http\Controllers\AdsController')->name('*','ads');
 
 
 
