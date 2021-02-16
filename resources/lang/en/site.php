@@ -120,5 +120,9 @@ return[
     'duration_days'                 =>  'Duration (in days)',
     'enter_duration'                =>  'Enter Duration',
     'days'                          =>  'Days',
+    'reported_posts'                =>  'Reported Posts',
+    'reporter_name'                 =>  'Reporter Name',
+    'ad_owner'                      =>  'AD Owner',
+    'item_name'                     =>  'Item Name',
 ]
 ?>

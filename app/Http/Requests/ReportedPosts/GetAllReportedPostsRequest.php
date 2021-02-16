@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Ads;
+namespace App\Http\Requests\ReportedPosts;
 
-use App\Models\API\Ads;
+use App\Models\API\ReportedPosts;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetAllAdsRequest extends FormRequest
+class GetAllReportedPostsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,10 +31,6 @@ class GetAllAdsRequest extends FormRequest
 
     public function handle()
     {
-        $ads =  Ads::all();
-        if (isset($this->ads_id)) {
-            $ads = $ads->where('id', $this->ads_id);
-        }
-        return $ads->all();
+        return ReportedPosts::with('appuser' , 'ads')->get();
     }
 }

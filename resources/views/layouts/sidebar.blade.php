@@ -74,6 +74,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('reportedposts.index')}}" class="nav-link {{(request()->is('reportedposts*')) ? 'active' : ''}}">
+                        <i class="icon-stack4"></i>
+                        <span>
+                            {{trans('site.reported_posts')}}
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('contact.index')}}" class="nav-link {{(request()->is('contact*')) ? 'active' : ''}}">
                         <i class="icon-address-book"></i>
                         <span>
