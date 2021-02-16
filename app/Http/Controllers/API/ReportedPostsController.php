@@ -16,16 +16,16 @@ class ReportedPostsController extends Controller
     public function reportedposts(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'reporter_id'   =>  'required',
-            'item_id'    =>  'required',
+            'app_user_id'   =>  'required',
+            'ads_id'    =>  'required',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => false, 'status' => $this->HTTP_NOT_FOUND, 'message' => 'Validation error.', 'data' => $validator->errors()->all()[0]]);
         }
         $input = $request->all();
         $reportedposts = ReportedPosts::create($input);
-        $success['reporter_id'] = $reportedposts->reporter_id;
-        $success['item_id'] = $reportedposts->item_id;
+        $success['app_user_id'] = $reportedposts->app_user_id;
+        $success['ads_id'] = $reportedposts->ads_id;
 
         return response()->json(['success' => true, 'status' => $this->successStatus, 'message' => 'Record found.', 'data' => $success]);
     }

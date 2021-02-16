@@ -18,6 +18,7 @@ class AdsController extends Controller
     public function index(GetAllAdsRequest $request)
     {
         $ads = $request->handle();
+        // dd($ads);
         return view('ads.index', compact('ads'));
     }
 

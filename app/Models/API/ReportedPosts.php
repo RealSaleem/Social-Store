@@ -10,7 +10,7 @@ class ReportedPosts extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $fillable = ['app_user_id' , 'item_id'];
+    protected $fillable = ['app_user_id' , 'ads_id'];
 
     public function appuser()
     {

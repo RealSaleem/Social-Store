@@ -46,8 +46,6 @@
 </div>
 <div class="form-group">
     <label>{{trans('site.select_country')}} :</label>
-
-  
     <select class="form-control form-control-select2" name="country_id">
         <option value="">{{trans('site.select')}}</option>
         @foreach($countries as $country)

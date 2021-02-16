@@ -10,7 +10,6 @@
     </ul>
 </div>
 @endif
-
 <div class="form-group">
     <label>{{trans('site.product_name')}} :</label>
     <input type="text" name="product_name" class="form-control" placeholder="{{trans('site.enter_product_name')}}" value="{{old('product_name', isset($ads) ? $ads->product_name : null)}}">

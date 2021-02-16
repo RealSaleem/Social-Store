@@ -31,10 +31,10 @@ class GetAllAdsRequest extends FormRequest
 
     public function handle()
     {
-        $ads =  Ads::all();
+        $ads =  Ads::with('appuser');
         if (isset($this->ads_id)) {
             $ads = $ads->where('id', $this->ads_id);
         }
-        return $ads->all();
+        return $ads->get();
     }
 }

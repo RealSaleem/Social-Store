@@ -21,7 +21,8 @@ class AdsController extends Controller
             'description'   =>  'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'type'  =>  'required',
-            'duration'  =>  'required'
+            'duration'  =>  'required',
+            'app_user_id'   =>  'required'
         ]);
 // dd($request->all());
         if ($validator->fails()) {
@@ -43,6 +44,7 @@ class AdsController extends Controller
         $success['image'] = $ads->image;
         $success['type']    =   $ads->type;
         $success['duration']    =   $ads->duration;
+        $success['app_user_id'] =   $ads->app_user_id;
         return response()->json(['success' => true, 'status' => $this->successStatus, 'message' => 'Record found.', 'data' => $success]);
     }
 }
