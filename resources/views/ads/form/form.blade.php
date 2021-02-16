@@ -11,6 +11,15 @@
 </div>
 @endif
 <div class="form-group">
+    <label>{{trans('site.select_user')}} :</label>
+    <select class="form-control form-control-select2" name="app_user_id">
+        <option value="">{{trans('site.select')}}</option>
+        @foreach($appusers as $appusers)
+        <option value="{{$appusers->id}}" {{ isset($appusers) && ( $ads->app_user_id == $appusers->id) ? 'Selected' : ''}} >{{$appusers->user_name}}</option>
+        @endforeach
+    </select>
+</div>
+<div class="form-group">
     <label>{{trans('site.product_name')}} :</label>
     <input type="text" name="product_name" class="form-control" placeholder="{{trans('site.enter_product_name')}}" value="{{old('product_name', isset($ads) ? $ads->product_name : null)}}">
 </div>

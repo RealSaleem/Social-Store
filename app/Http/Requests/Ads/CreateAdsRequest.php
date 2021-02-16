@@ -25,6 +25,7 @@ class CreateAdsRequest extends FormRequest
     public function rules()
     {
         return [
+            'app_user_id'   =>  ['required'],
             'product_name' => ['required'],
             'price' =>  ['required'],
             'description'   =>  ['required'],
@@ -36,6 +37,7 @@ class CreateAdsRequest extends FormRequest
     {
         $params = $this->all();
         $ads = new Ads();
+        $ads->app_user_id   =   $params['app_user_id'];
         $ads->product_name  =   $params['product_name'];
         $ads->price =   $params['price'];
         $ads->type  =   $params['type'];

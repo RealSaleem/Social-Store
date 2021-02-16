@@ -6,6 +6,7 @@ use App\Http\Requests\Ads\CreateAdsRequest;
 use App\Http\Requests\Ads\GetAllAdsRequest;
 use App\Http\Requests\Ads\UpdateAdsRequest;
 use App\Models\API\Ads;
+use App\Models\API\AppUser;
 use Illuminate\Http\Request;
 
 class AdsController extends Controller
@@ -29,7 +30,9 @@ class AdsController extends Controller
      */
     public function create()
     {
-        return view('ads.form.create');
+        $appusers = AppUser::get();
+        // dd($appusers);
+        return view('ads.form.create', compact('appusers'));
     }
 
     /**
@@ -63,8 +66,9 @@ class AdsController extends Controller
      */
     public function edit($id)
     {
+        $appusers = AppUser::get();
         $ads = Ads::where('id', $id)->first();
-        return view('ads.form.edit', compact('ads'));
+        return view('ads.form.edit', compact('ads' , 'appusers'));
     }
 
     /**
