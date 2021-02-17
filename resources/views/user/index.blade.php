@@ -25,7 +25,7 @@
             </div>
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table datatable-basic table-bordered">
+                    <table class="table datatable-basic table-bordered" id="users-table">
                         <thead>
                             <tr>
                                 <th>{{trans('site.id')}}</th>
@@ -85,25 +85,55 @@
 <!-- /content area -->
 @endsection
 @section('script')
+<!-- Jquery download pdf excel and csv scripts -->
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script>
+    $('#users-table').DataTable({
+        'scrollX':true,
+        'dom': 'Bfrtip',
+        'buttons': [
+            {
+                extend: 'excel',
+                text: 'Excel',
+                className: 'btn waves-effect waves-light invoice-export border-round',
+                exportOptions: {
+                columns: [0,1,2,3,4,6,7,8]
+                } 
+            },
+            {
+                extend: 'csv',
+                text: 'CSV',
+                className: 'btn waves-effect waves-light invoice-export border-round',
+                exportOptions: {
+                columns: [0,1,2,3,4,6,7,8]
+                } 
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                className: 'btn waves-effect waves-light invoice-export border-round',
+                exportOptions: {
+                columns: [0,1,2,3,4,6,7,8]
+                } 
+            }
+        ]
+    });
+</script>
 <script>
     $(document).ready(function() {
         // $('.datatable-basic').DataTable();
     });
-
     var DatatableBasic = function() {
-
-
-        //
-        // Setup module components
-        //
-
-        // Basic Datatable examples
         var _componentDatatableBasic = function() {
             if (!$().DataTable) {
                 console.warn('Warning - datatables.min.js is not loaded.');
                 return;
             }
-
             // Setting datatable defaults
             $.extend($.fn.dataTable.defaults, {
                 autoWidth: false,
@@ -125,12 +155,8 @@
                     }
                 }
             });
-
-
-
             // Basic datatable
             $('.datatable-basic').DataTable();
-
             // Alternative pagination
             $('.datatable-pagination').DataTable({
                 pagingType: "simple",
@@ -141,12 +167,10 @@
                     }
                 }
             });
-
             // Datatable with saving state
             $('.datatable-save-state').DataTable({
                 stateSave: true
             });
-
             // Scrollable datatable
             var table = $('.datatable-scroll-y').DataTable({
                 autoWidth: true,
@@ -158,7 +182,6 @@
                 table.columns.adjust().draw();
             });
         };
-
         // Select2 for length menu styling
         var _componentSelect2 = function() {
             if (!$().select2) {
@@ -173,29 +196,24 @@
                 width: 'auto'
             });
         };
-
-
         //
         // Return objects assigned to module
         //
-
         return {
             init: function() {
                 _componentDatatableBasic();
                 _componentSelect2();
             }
         }
+
+
     }();
-
-
     // Initialize module
     // ------------------------------
-
     document.addEventListener('DOMContentLoaded', function() {
         DatatableBasic.init();
     });
 </script>
-
 <script>
     $('.delete-record').submit(function(e) {
         e.preventDefault();

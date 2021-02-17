@@ -38,11 +38,14 @@
     <script src="{{asset('assets/global_assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
     <script src="{{asset('assets/global_assets/js/demo_pages/datatables_sorting.js')}}"></script>
     <script src="{{asset('assets/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
+   
 
     <script src="{{asset('assets/js/app.js')}}"></script>
     <script src="{{asset('assets/global_assets/js/demo_pages/dashboard.js')}}"></script>
     {{--<script src="{{asset('assets/global_assets/js/plugins/notifications/sweet_alert.min.js')}}"></script>--}}
     <script src="{{asset('assets/global_assets/js/demo_pages/sweetalert11.min.js')}}"></script>
+    
+   
     
     <!-- /theme JS files -->
     @yield('style')

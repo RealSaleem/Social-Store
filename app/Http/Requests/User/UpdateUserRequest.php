@@ -33,7 +33,6 @@ class UpdateUserRequest extends FormRequest
             'phone' =>  ['required'],
             'country_id'    =>  ['required'],
             'category_id'   =>  ['required'],
-            'image' =>  ['required'],
         ];
     }
 
