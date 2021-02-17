@@ -66,6 +66,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('bids.index')}}" class="nav-link {{(request()->is('bids*')) ? 'active' : ''}}">
+                        <i class="fas fa-gavel"></i>
+                        <span>
+                            {{trans('site.bids')}}
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('stories.index')}}" class="nav-link {{(request()->is('stories*')) ? 'active' : ''}}">
+                        <i class="fas fa-book"></i>
+                        <span>
+                            {{trans('site.stories')}}
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('reportedusers.index')}}" class="nav-link {{(request()->is('reportedusers*')) ? 'active' : ''}}">
                         <i class="icon-user-cancel"></i>
                         <span>

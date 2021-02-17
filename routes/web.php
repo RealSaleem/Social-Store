@@ -33,6 +33,8 @@ Route::resource('reportedusers', 'App\Http\Controllers\ReportedUsersController')
 Route::resource('setting', 'App\Http\Controllers\SettingController')->name('*','setting');
 Route::resource('ads', 'App\Http\Controllers\AdsController')->name('*','ads');
 Route::resource('reportedposts', 'App\Http\Controllers\ReportedPostsController')->name('*','reportedposts');
+Route::resource('bids', 'App\Http\Controllers\BidsController')->name('*','bids');
+Route::resource('stories', 'App\Http\Controllers\StoriesController')->name('*','stories');
 
 
 

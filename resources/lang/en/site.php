@@ -126,5 +126,9 @@ return[
     'ad_owner'                      =>  'AD Owner',
     'item_name'                     =>  'Item Name',
     'select_user'                   =>  'Select User',
+    'bids'                          =>  'Bids',
+    'stories'                       =>  'Stories',
+    'view_bids'                     =>  'View Bids',
+    'view_stories'                  =>  'View Stories',
 ]
 ?>
