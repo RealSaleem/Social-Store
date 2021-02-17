@@ -31,6 +31,6 @@ class GetAllReportedPostsRequest extends FormRequest
 
     public function handle()
     {
-        return ReportedPosts::with('appuser' , 'ads')->get();
+        return ReportedPosts::with('appuser', 'ads.appuser')->get();
     }
 }

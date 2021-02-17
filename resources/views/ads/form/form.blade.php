@@ -15,7 +15,7 @@
     <select class="form-control form-control-select2" name="app_user_id">
         <option value="">{{trans('site.select')}}</option>
         @foreach($appusers as $appusers)
-        <option value="{{$appusers->id}}" {{ isset($ads) && ( $ads->app_user_id == $appusers->id) ? 'Selected' : ''}} >{{$appusers->user_name}}</option>
+        <option value="{{$appusers->id}}" {{ isset($ads) && ( $ads->app_user_id == $appusers->id) ? 'Selected' : ''}}>{{$appusers->user_name}}</option>
         @endforeach
     </select>
 </div>
@@ -29,14 +29,23 @@
 </div>
 <div class="form-group">
     <label>{{trans('site.type')}} :</label>
-    <select class="form-control form-control-select2" name="type">
+    <select class="form-control form-control-select2" name="type" id="type">
         <option value="normal" @if (isset($ads) && $ads->type == 'normal') selected="selected" @endif>{{trans('site.normal')}}</option>
         <option value="promoted" @if (isset($ads) && $ads->type == 'promoted') selected="selected" @endif>{{trans('site.promoted')}}</option>
     </select>
 </div>
-<div class="form-group">
+@if(!isset($ads))
+<div class="form-group d-none" id="duration">
+@else
+<div class="form-group {{ isset($ads) && $ads->type != 'promoted' ? 'd-none' : null}}" id="duration">
+@endif
     <label>{{trans('site.duration_days')}} :</label>
-    <input type="number" name="duration" class="form-control" placeholder="{{trans('site.enter_duration')}}" value="{{old('duration', isset($ads) ? $ads->duration : null)}}">
+    <select class="form-control form-control-select2" name="duration" id="durations">
+        <option value="0">{{trans('site.select')}}</option>
+        @for ($i = 1; $i <=10 ; $i++) 
+        <option value="{{$i}}" @if (isset($ads) && $ads->duration == $i) selected="selected" @endif>{{$i}} {{trans('site.days')}} </option>
+            @endfor
+    </select>
 </div>
 <div class="form-group">
     <label>{{trans('site.description')}} :</label>
@@ -54,10 +63,21 @@
 <div class="text-right">
     <button type="submit" class="btn btn-primary">{{trans('site.submit_form')}}<i class="icon-paperplane ml-2"></i></button>
 </div>
-
 @section('script')
 <script src="{{asset('assets/global_assets/js/plugins/dropify/js/dropify.min.js')}}"></script>
 <script>
     $('.dropify').dropify();
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#type").change(function () {
+            if ($(this).val() == "promoted") {
+                $("#duration").removeClass('d-none');
+            } else {
+                $("#duration").addClass('d-none');
+            }
+        });
+    });
 </script>
 @endsection
