@@ -125,5 +125,7 @@ return[
     'ad_owner'                      =>  'AD Owner',
     'item_name'                     =>  'Item Name',
     'select_user'                   =>  'Select User',
+
+    'aaa'       =>  'sss',
 ]
 ?>
