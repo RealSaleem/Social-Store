@@ -45,7 +45,7 @@
                     </div>
                     <hr class="mt-3 mb-4">
                     <div class="form-group">
-                        <h4><strong>{{trans('site.promotion_price')}}</strong></h4>
+                        <h4><strong>{{trans('site.promotion_price_day')}}</strong></h4>
                         {{$sett->promotion_price}}
                     </div>
                     <hr class="mt-3 mb-4">

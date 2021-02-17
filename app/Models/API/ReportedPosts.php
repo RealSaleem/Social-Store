@@ -19,6 +19,17 @@ class ReportedPosts extends Model
 
     public function ads()
     {
-        return $this->belongsTo(Ads::class, 'ads_id' , 'id');
+        return $this->belongsTo(Ads::class, 'ads_id'  , 'id');
     }
+
+    
+    // public function adsuser()
+    // {
+    //     return $this->belongsTo(AppUser::class, 'ads_id', 'id' );
+    // }
+    
+    // public function ads()
+    // {
+    //     return $this->hasOneThrough(AppUser::class, Ads::class);
+    // }
 }

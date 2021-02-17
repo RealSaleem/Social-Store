@@ -15,7 +15,7 @@
     <select class="form-control form-control-select2" name="app_user_id">
         <option value="">{{trans('site.select')}}</option>
         @foreach($appusers as $appusers)
-        <option value="{{$appusers->id}}" {{ isset($appusers) && ( $ads->app_user_id == $appusers->id) ? 'Selected' : ''}} >{{$appusers->user_name}}</option>
+        <option value="{{$appusers->id}}" {{ isset($ads) && ( $ads->app_user_id == $appusers->id) ? 'Selected' : ''}} >{{$appusers->user_name}}</option>
         @endforeach
     </select>
 </div>

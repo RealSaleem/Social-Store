@@ -27,7 +27,7 @@
 <div class="card">
     <div class="card-body">
         <div class="form-group">
-            <label>{{trans('site.promotion_price')}} :</label>
+            <label>{{trans('site.promotion_price_day')}} :</label>
             <input type="text" name="promotion_price" class="form-control" placeholder="{{trans('site.enter_promotion_price')}}" value="{{old('promotion_price', isset($setting) ? $setting->promotion_price : null)}}">
         </div>
     </div>

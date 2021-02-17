@@ -103,7 +103,7 @@ return[
     'enter_insta_url'               =>  'Enter Instagram Url',
     'enter_twt_url'                 =>  'Enter Twitter Url',
     'social_media_links'            =>  'Social Media Links',
-    'promotion_price'               =>  'Promotion Price',
+    'promotion_price_day'           =>  'Promotion Price ( per day )',
     'enter_promotion_price'         =>  'Enter Price',
     'ads'                           =>  'Ads',
     'product_name'                  =>  'Product Name',
