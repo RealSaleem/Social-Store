@@ -130,5 +130,9 @@ return[
     'stories'                       =>  'Stories',
     'view_bids'                     =>  'View Bids',
     'view_stories'                  =>  'View Stories',
+    'added_successfully'            =>  'Record has been created successfully',
+    'updated_successfully'          =>  'Record has been updated successfully',
+    'deleted_successfully'          =>  'Record has been deleted successfully',
+    'notification_successfully'     =>  'Notification sent successfully',
 ]
 ?>

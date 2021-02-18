@@ -38,7 +38,7 @@ class NotificationController extends Controller
     public function store(CreateNotificationRequest $request)
     {
         $request->handle();
-        return redirect()->route('notification.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('notification.index')->with('success', trans('site.notification_successfully'));
     }
 
     /**

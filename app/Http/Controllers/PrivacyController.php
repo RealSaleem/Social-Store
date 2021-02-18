@@ -40,7 +40,7 @@ class PrivacyController extends Controller
     public function store(CreatePrivacyRequest $request)
     {
         $request->handle();
-        return redirect()->route('privacy.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('privacy.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -79,7 +79,7 @@ class PrivacyController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('privacy.index')->with('success' , 'Record has been updated successfully');
+        return redirect()->route('privacy.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**

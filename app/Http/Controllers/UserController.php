@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $appusers = $request->handle();
         // dd($appusers);
-        return view('user.index' , compact('appusers'));
+        return view('user.index', compact('appusers'));
     }
 
     /**
@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $countries = Country::get();
         $categories = Category::get();
-        return view('user.form.create', compact('countries' , 'categories'));
+        return view('user.form.create', compact('countries', 'categories'));
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $request->handle();
         // dd($request);
-        return redirect()->route('user.index')->withSucccess('Record Has Been Added Successfully');
+        return redirect()->route('user.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -57,7 +57,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      
     }
 
     /**
@@ -70,8 +69,8 @@ class UserController extends Controller
     {
         $countries = Country::get();
         $categories = Category::get();
-        $appusers = AppUser::where('id' , $id)->first();
-        return view('user.form.edit' , compact('appusers' , 'countries' , 'categories'));
+        $appusers = AppUser::where('id', $id)->first();
+        return view('user.form.edit', compact('appusers', 'countries', 'categories'));
     }
 
     /**
@@ -86,7 +85,7 @@ class UserController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('user.index')->with('success' , "record has been updated successfully" );
+        return redirect()->route('user.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**
@@ -100,6 +99,6 @@ class UserController extends Controller
         $appusers = AppUser::find($id);
         \App\Helpers\Helper::deleteAttachment($appusers->image);
         $appusers->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('error', trans('site.deleted_successfully'));
     }
 }

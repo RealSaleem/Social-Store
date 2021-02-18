@@ -44,7 +44,7 @@ class AdsController extends Controller
     public function store(CreateAdsRequest $request)
     {
         $request->handle();
-        return redirect()->route('ads.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('ads.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -82,7 +82,7 @@ class AdsController extends Controller
     {
         $request['id'] = $id;
         $request->handle();
-        return redirect()->route('ads.index')->with('success', "record has been updated successfully");
+        return redirect()->route('ads.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**
@@ -96,6 +96,6 @@ class AdsController extends Controller
         $ads = Ads::find($id);
         \App\Helpers\Helper::deleteAttachment($ads->image);
         $ads->delete();
-        return redirect()->route('ads.index');
+        return redirect()->route('ads.index')->with('error', trans('site.deleted_successfully'));
     }
 }

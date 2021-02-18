@@ -40,7 +40,7 @@ class TermsConditionsController extends Controller
     public function store(CreateTermsRequest $request)
     {
         $request->handle();
-        return redirect()->route('terms.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('terms.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -78,7 +78,7 @@ class TermsConditionsController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('terms.index')->with('success' , 'Record has been updated successfully');
+        return redirect()->route('terms.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**

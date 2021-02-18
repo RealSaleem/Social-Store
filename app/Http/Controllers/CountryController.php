@@ -40,7 +40,7 @@ class CountryController extends Controller
     public function store(CreateCountryRequest $request)
     {
         $request->handle();
-        return redirect()->route('country.index')->withSucccess('Record Has Been Added Successfully');
+        return redirect()->route('country.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -78,7 +78,7 @@ class CountryController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('country.index')->with('success' , "record has been updated successfully" );
+        return redirect()->route('country.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**
@@ -92,6 +92,6 @@ class CountryController extends Controller
         $country = Country::find($id);
         \App\Helpers\Helper::deleteAttachment($country->image);
         $country->delete();
-        return redirect()->route('country.index');
+        return redirect()->route('country.index')->with('error', trans('site.deleted_successfully'));
     }
 }

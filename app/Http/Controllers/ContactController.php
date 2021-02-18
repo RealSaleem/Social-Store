@@ -76,7 +76,7 @@ class ContactController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('contact.index')->with('success' , "record has been updated successfully" );
+        return redirect()->route('contact.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**

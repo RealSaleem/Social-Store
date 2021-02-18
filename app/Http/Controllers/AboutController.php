@@ -40,7 +40,7 @@ class AboutController extends Controller
     public function store(CreateAboutRequest $request)
     {
         $request->handle();
-        return redirect()->route('about.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('about.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -78,7 +78,7 @@ class AboutController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('about.index')->with('success', 'Record has been updated successfully');
+        return redirect()->route('about.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**

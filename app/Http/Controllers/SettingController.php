@@ -40,7 +40,7 @@ class SettingController extends Controller
     public function store(CreateSettingRequest $request)
     {
         $request->handle();
-        return redirect()->route('setting.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('setting.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -77,7 +77,7 @@ class SettingController extends Controller
     {
         $request['id'] = $id;
         $request->handle();
-        return redirect()->route('setting.index')->with('success' , 'Record has been updated successfully');
+        return redirect()->route('setting.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**

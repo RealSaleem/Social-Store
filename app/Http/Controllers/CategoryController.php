@@ -39,9 +39,9 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-      $request->handle();
+        $request->handle();
 
-      return redirect()->route('category.index')->withSuccess('Record Has Been Added Successfully');
+        return redirect()->route('category.index')->with('success', trans('site.added_successfully'));
     }
 
     /**
@@ -64,8 +64,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         // $category = Category::find($id);
-        $category = Category::where('id' , $id)->first();
-        return view('category.form.edit' , compact('category'));
+        $category = Category::where('id', $id)->first();
+        return view('category.form.edit', compact('category'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CategoryController extends Controller
         $request['id'] = $id;
         $request->handle();
 
-        return redirect()->route('category.index')->with('success' , "record has been updated successfully" );
+        return redirect()->route('category.index')->with('success', trans('site.updated_successfully'));
     }
 
     /**
@@ -95,6 +95,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         \App\Helpers\Helper::deleteAttachment($category->image);
         $category->delete();
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('error', trans('site.deleted_successfully'));
     }
 }
