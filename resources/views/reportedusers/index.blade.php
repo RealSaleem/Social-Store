@@ -41,7 +41,7 @@
             </div>
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table datatable-basic table-bordered">
+                    <table class="table datatable-basic table-bordered" data-order='[[0,"desc"]]'>
                         <thead>
                             <tr>
                                 <th>{{trans('site.id')}}</th>
