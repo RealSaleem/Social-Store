@@ -51,8 +51,8 @@
                                 <td>{{$user->email}}</td>
                                 <td><img src="{{asset('storage/'.$user->image)}}" style="width: 100px; height: auto;" /></td>
                                 <td>{{$user->phone}}</td>
-                                <td>{{$user->country->name_en}}</td>
-                                <td>{{$user->category->name_en}}</td>
+                                <td>{{isset($user->country->name_en) ? $user->country->name_en : ''}}</td>
+                                <td>{{isset($user->category->name_en) ? $user->category->name_en : ''}}</td>
                                 <!-- <td>{{date('d M Y h:i:s A',strtotime($user->created_at))}}</td> -->
                                 <td class="text-center">
                                     <div class="list-icons">
