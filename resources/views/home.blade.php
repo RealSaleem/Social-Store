@@ -2,7 +2,7 @@
 @section('content')
 <style>
 .box-bordr{
-    box-shadow: 5px 10px;
+    box-shadow: 10px 5px;
 }
 .txt-sz{
     font-size: 16px;
