@@ -18,6 +18,8 @@ class CategoryController extends Controller
     public function index(GetAllCategoryRequest $request)
     {
         $categories = $request->handle();
+        // $categories = $categories->count();
+        // dd($categories);
         return view('category.index', compact('categories'));
     }
 
@@ -40,7 +42,6 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $request->handle();
-
         return redirect()->route('category.index')->with('success', trans('site.added_successfully'));
     }
 
