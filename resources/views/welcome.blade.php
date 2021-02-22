@@ -18,7 +18,7 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
-                background: url(http://localhost/socialstore/public/assets/global_assets/images/rectangle48.png);
+                background: url(../public/assets/global_assets/images/rectangle48.png);
                 background-size: cover;
             }
 
