@@ -5,7 +5,7 @@
     height: 93.6vh;
 }
 body{
-    background: url(../public/assets/global_assets/images/rectangle48.png);
+    background: url(public/assets/global_assets/images/rectangle48.png);
     background-size: cover;
 }
 .card{
