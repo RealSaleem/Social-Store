@@ -58,7 +58,7 @@
                             <tr>
                                 <td>{{$reporteduser->id}}</td>
                                 <td><a href="{{route('user.index', ['user_id' => isset($reporteduser->appuser->id) ? $reporteduser->appuser->id : ''])}}">{{isset($reporteduser->appuser->user_name) ? $reporteduser->appuser->user_name : ''}}</a></td>
-                                <td><a href="{{route('user.index', ['user_id' => isset($reporteduser->appuser->id) ? $reporteduser->appuser->id : ''])}}">{{isset($reporteduser->againstuser->user_name) ? $reporteduser->againstuser->user_name : ''}}</a></td>
+                                <td><a href="{{route('user.index', ['user_id' => isset($reporteduser->againstuser->id) ? $reporteduser->againstuser->id : ''])}}">{{isset($reporteduser->againstuser->user_name) ? $reporteduser->againstuser->user_name : ''}}</a></td>
                             </tr>
                             @endforeach
                         </tbody>
