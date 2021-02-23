@@ -26,12 +26,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
-                            <form action="{{route('ads.update',$ads->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('ads.update',$ads->id)}}" method="post" enctype="multipart/form-data" id="ads_form">
                                 @csrf
                                 {{ method_field('PUT') }}
-                                <input type="hidden" name="hidden_image" id="hidden_image" value="{{ $ads->image }}" />
-                                @include('ads.form.form')
+                                <input type="hidden" name="hidden_image" id="hidden_image" value="{{ $ads->images }}" />
                             </form>
+                            @include('ads.form.form')
                         </div>
                     </div>
                 </div>

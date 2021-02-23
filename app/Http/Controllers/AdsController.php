@@ -67,7 +67,7 @@ class AdsController extends Controller
     public function edit($id)
     {
         $appusers = AppUser::get();
-        $ads = Ads::where('id', $id)->first();
+        $ads = Ads::with('images')->where('id', $id)->first();
         return view('ads.form.edit', compact('ads' , 'appusers'));
     }
 

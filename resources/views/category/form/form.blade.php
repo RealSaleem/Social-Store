@@ -23,7 +23,7 @@
 <div class="form-group">
 <label>{{trans('site.category_image')}} :</label>
     @if(isset($category) && $category->image != null)
-    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{asset('storage/'.$category->image)}}" data-max-file-size="2M" />
+    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{asset('storage/'.$category->getRawOriginal('image'))}}" data-max-file-size="2M" />
     @else
     <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M" />
     @endif

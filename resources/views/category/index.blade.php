@@ -42,7 +42,7 @@
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->name_en}}</td>
                                 <td>{{$category->name_ar}}</td>
-                                <td><img src="{{asset('storage/'.$category->image)}}" style="width: 100px; height: auto;" /></td>
+                                <td><img src="{{$category->image}}" style="width: 100px; height: auto;" /></td>
                                 <!-- <td>{{date('d M Y h:i:s A',strtotime($category->created_at))}}</td> -->
                                 <td class="text-center">
                                     <div class="list-icons">

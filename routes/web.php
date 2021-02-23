@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/activate_user/{token}', 'App\Http\Controllers\API\AppUserController@activateAccount');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/image_upload', 'App\Http\Controllers\ImageController@imageUplaod');
 Route::resource('about', 'App\Http\Controllers\AboutController')->name('*','about');
 Route::resource('privacy', 'App\Http\Controllers\PrivacyController')->name('*','privacy');
 Route::resource('terms', 'App\Http\Controllers\TermsConditionsController')->name('*','terms');

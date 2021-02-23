@@ -26,10 +26,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
-                            <form action="{{route('ads.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('ads.store')}}" method="post" enctype="multipart/form-data" id="ads_form">
                                 @csrf
-                                @include('ads.form.form')
                             </form>
+                            @include('ads.form.form')
                         </div>
                     </div>
                 </div>

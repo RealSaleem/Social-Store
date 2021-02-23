@@ -2,6 +2,7 @@
 
 namespace App\Models\API;
 
+use App\Models\AdsImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,5 +16,10 @@ class Ads extends Model
     public function appuser()
     {
         return $this->belongsTo(AppUser::class, 'app_user_id' , 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(AdsImage::class);
     }
 }

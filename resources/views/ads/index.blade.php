@@ -48,7 +48,11 @@
                                 <td>{{$ad->product_name}}</td>
                                 <td>{{$ad->price}}</td>
                                 <td>{{$ad->description}}</td>
-                                <td><img src="{{asset('storage/'.$ad->image)}}" style="width: 100px; height: auto;" /></td>
+                                <td>
+                                    @foreach($ad->images as $image)
+                                    <img src="{{$image->url}}" style="width: 100px; height: auto;" />
+                                    @endforeach
+                                </td>
                                 <td>{{$ad->type}}</td>
                                 <td>{{$ad->duration}} {{trans('site.days')}}</td>
                                 <td class="text-center">

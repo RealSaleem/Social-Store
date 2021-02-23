@@ -69,6 +69,8 @@ return [
 
     // 'timezone' => 'UTC',
     'timezone' => env('APP_TIMEZONE','Asia/Karachi'),
+    'uploads_url' => env('IMAGE_URL', 'http://localhost/social-store/public/storage/ '),
+
 
     /*
     |--------------------------------------------------------------------------

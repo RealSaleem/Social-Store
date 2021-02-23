@@ -19,6 +19,7 @@
     <link href="{{asset('assets/css/components.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/colors.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/dropzone.min.css')}}" rel="stylesheet" type="text/css">
     {{--<link href="{{asset('assets/css/sweetalert.css')}}" rel="stylesheet" type="text/css">--}}
     <!-- /global stylesheets -->
 
@@ -26,6 +27,7 @@
     <script src="{{asset('assets/global_assets/js/main/jquery.min.js')}}"></script>
     <script src="{{asset('assets/global_assets/js/main/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/global_assets/js/plugins/loaders/blockui.min.js')}}"></script>
+    <script src="{{asset('assets/js/dropzone.min.js')}}"></script>
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
@@ -43,6 +45,7 @@
 
 
     <script src="{{asset('assets/js/app.js')}}"></script>
+    
     <script src="{{asset('assets/global_assets/js/demo_pages/dashboard.js')}}"></script>
     {{--<script src="{{asset('assets/global_assets/js/plugins/notifications/sweet_alert.min.js')}}"></script>--}}
     <script src="{{asset('assets/global_assets/js/demo_pages/sweetalert11.min.js')}}"></script>
