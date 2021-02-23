@@ -16,9 +16,11 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
-            $table->string('product_name' , 150)->nullable();
+            $table->string('product_name_en' , 150)->nullable();
+            $table->string('product_name_ar' , 150)->nullable();
             $table->string('price' , 150)->nullable();
-            $table->text('description')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_ar')->nullable();
             $table->string('image' , 150)->nullable();
             $table->string('type' , 150)->nullable();
             $table->string('duration' , 150)->nullable();

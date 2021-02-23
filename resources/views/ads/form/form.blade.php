@@ -33,8 +33,12 @@ $ads_images = $ads->images;
     </select>
 </div>
 <div class="form-group">
-    <label>{{trans('site.product_name')}} :</label>
-    <input type="text" name="product_name" class="form-control" placeholder="{{trans('site.enter_product_name')}}" value="{{old('product_name', isset($ads) ? $ads->product_name : null)}}" form="ads_form">
+    <label>{{trans('site.product_name_en')}} :</label>
+    <input type="text" name="product_name_en" class="form-control" placeholder="{{trans('site.enter_product_name')}}" value="{{old('product_name_en', isset($ads) ? $ads->product_name_en : null)}}" form="ads_form">
+</div>
+<div class="form-group">
+    <label>{{trans('site.product_name_ar')}} :</label>
+    <input type="text" name="product_name_ar" class="form-control" placeholder="{{trans('site.enter_product_name')}}" value="{{old('product_name_ar', isset($ads) ? $ads->product_name_ar : null)}}" form="ads_form">
 </div>
 <div class="form-group">
     <label>{{trans('site.price')}} :</label>
@@ -60,8 +64,12 @@ $ads_images = $ads->images;
         </select>
     </div>
     <div class="form-group">
-        <label>{{trans('site.description')}} :</label>
-        <textarea rows="8" cols="5" class="form-control" name="description" placeholder="{{trans('site.enter_description')}}" form="ads_form">{{old('description', isset($ads) ? $ads->description : null)}}</textarea>
+        <label>{{trans('site.description_en')}} :</label>
+        <textarea rows="8" cols="5" class="form-control" name="description_en" placeholder="{{trans('site.enter_description')}}" form="ads_form">{{old('description_en', isset($ads) ? $ads->description_en : null)}}</textarea>
+    </div>
+    <div class="form-group">
+        <label>{{trans('site.description_ar')}} :</label>
+        <textarea rows="8" cols="5" class="form-control" name="description_ar" placeholder="{{trans('site.enter_description')}}" form="ads_form">{{old('description_ar', isset($ads) ? $ads->description_ar : null)}}</textarea>
     </div>
     <div class="form-group">
         <label>{{trans('site.image')}} :</label>

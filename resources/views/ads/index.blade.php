@@ -30,9 +30,11 @@
                             <tr>
                                 <th>{{trans('site.id')}}</th>
                                 <th>{{trans('site.user_name')}}</th>
-                                <th>{{trans('site.product_name')}}</th>
+                                <th>{{trans('site.product_name_en')}}</th>
+                                <th>{{trans('site.product_name_ar')}}</th>
                                 <th>{{trans('site.price')}}</th>
-                                <th>{{trans('site.description')}}</th>
+                                <th>{{trans('site.description_en')}}</th>
+                                <th>{{trans('site.description_ar')}}</th>
                                 <th>{{trans('site.image')}}</th>
                                 <th>{{trans('site.type')}}</th>
                                 <th>{{trans('site.duration_days')}}</th>
@@ -45,9 +47,11 @@
                             <tr>
                                 <td>{{$ad->id}}</td>
                                 <td>{{isset($ad->appuser->user_name) ? $ad->appuser->user_name : ''}}</td>
-                                <td>{{$ad->product_name}}</td>
+                                <td>{{$ad->product_name_en}}</td>
+                                <td>{{$ad->product_name_ar}}</td>
                                 <td>{{$ad->price}}</td>
-                                <td>{{$ad->description}}</td>
+                                <td>{{$ad->description_en}}</td>
+                                <td>{{$ad->description_ar}}</td>
                                 <td>
                                     @foreach($ad->images as $image)
                                     <img src="{{$image->url}}" style="width: 100px; height: auto;" />

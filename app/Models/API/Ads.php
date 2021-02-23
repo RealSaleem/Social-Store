@@ -11,7 +11,7 @@ class Ads extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $fillable = ['product_name' , 'price' , 'description' , 'duration' , 'type' , 'app_user_id'];
+    protected $fillable = ['product_name_en' , 'product_name_ar' , 'price' , 'description' , 'duration' , 'type' , 'app_user_id'];
 
     public function appuser()
     {

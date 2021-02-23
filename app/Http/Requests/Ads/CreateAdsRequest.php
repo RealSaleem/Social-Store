@@ -27,9 +27,9 @@ class CreateAdsRequest extends FormRequest
     {
         return [
             'app_user_id'   =>  ['required'],
-            'product_name' => ['required'],
+            'product_name_en' => ['required'],
             'price' =>  ['required'],
-            'description'   =>  ['required'],
+            'description_en'   =>  ['required'],
             'images' =>  ['required']
         ];
     }
@@ -40,10 +40,12 @@ class CreateAdsRequest extends FormRequest
         // dd($params);
         $ads = new Ads();
         $ads->app_user_id   =   $params['app_user_id'];
-        $ads->product_name  =   $params['product_name'];
+        $ads->product_name_en  =   $params['product_name_en'];
+        $ads->product_name_ar  =   $params['product_name_ar'];
         $ads->price =   $params['price'];
         $ads->type  =   $params['type'];
-        $ads->description   =   $params['description'];
+        $ads->description_en   =   $params['description_en'];
+        $ads->description_ar   =   $params['description_ar'];
         $ads->duration  =   $params['duration'];
         $ads->save();
         if($this->images != null)
