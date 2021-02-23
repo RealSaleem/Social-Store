@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Ads;
 
+use App\Models\AdsImage;
 use App\Models\API\Ads;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -43,12 +44,20 @@ class UpdateAdsRequest extends FormRequest
         $ads->type  =   $params['type'];
         $ads->description   =   $params['description'];
         $ads->duration  =   $params['duration'];
-        if($this->hasFile('image'))
-        {
-            $image_path = $this->file('image')->store('uploads/images');
-            $ads->image = $image_path;
-        }
         $ads->save();
+        if($this->images != null)
+        {
+            AdsImage::where('ads_id', $ads->id)->delete();
+            foreach($this->images as $image)
+            {
+                $productImage               = new AdsImage();
+                $productImage->ads_id       = $ads->id; 
+                $productImage->name         = $image['name']; 
+                $productImage->url          = $image['path']; 
+                $productImage->size         = $image['size'];
+                $productImage->save(); 
+            }
+        }
         return $ads;
     }
 }

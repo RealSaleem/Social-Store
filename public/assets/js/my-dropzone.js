@@ -26,7 +26,7 @@ $(document).ready(function() {
         paramName: "image", // The name that will be used to transfer the file
         url: image_upload_path,
         acceptedFiles: 'image/*',
-        maxFilesize: 4, // MB
+        maxFilesize: 10, // MB
         addRemoveLinks: true,
         capture: true,
         dictRemoveFile: 'Remove',

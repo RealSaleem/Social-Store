@@ -15,11 +15,11 @@ class ReportedUser extends Model
 
     public function appuser()
     {
-        return $this->belongsTo(AppUser::class, 'user_id' , 'id');
+        return $this->belongsTo(AppUser::class, 'user_id' , 'id')->withTrashed();
     }
 
     public function againstuser()
     {
-        return $this->belongsTo(AppUser::class, 'against_id' , 'id');
+        return $this->belongsTo(AppUser::class, 'against_id' , 'id')->withTrashed();
     }
 }

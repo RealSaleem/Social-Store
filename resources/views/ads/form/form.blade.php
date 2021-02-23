@@ -65,7 +65,7 @@ $ads_images = $ads->images;
     </div>
     <div class="form-group">
         <label>{{trans('site.image')}} :</label>
-        <form name="ads_images" action="/file-upload" class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data">
+        <form name="ads_images" action="/file-upload" class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data" form="ads_form">
             <div class="fallback" required>
                 <input name="file" type="file" style="display: none;">
             </div>

@@ -54,9 +54,9 @@
                             @foreach($reportedposts as $reposts)
                             <tr>
                                 <td>{{$reposts->id}}</td>
-                                <td><a href="{{route('user.index', ['user_id' => $reposts->appuser->id])}}">{{$reposts->appuser->user_name}}</a></td>
-                                <td><a href="{{route('user.index', ['user_id' => $reposts->ads->appuser->id])}}">{{$reposts->ads->appuser->user_name}}</a></td>
-                                <td><a href="{{route('ads.index', ['ads_id' => $reposts->ads->id])}}">{{$reposts->ads->product_name}}</a></td>
+                                <td><a href="{{route('user.index', ['user_id' => isset($reposts->appuser->id) ? $reposts->appuser->id : ''])}}">{{isset($reposts->appuser->user_name) ? $reposts->appuser->user_name : ''}}</a></td>
+                                <td><a href="{{route('user.index', ['user_id' => isset($reposts->ads->appuser->id) ? $reposts->ads->appuser->id : ''])}}">{{isset($reposts->ads->appuser->user_name) ? $reposts->ads->appuser->user_name : ''}}</a></td>
+                                <td><a href="{{route('ads.index', ['ads_id' => isset($reposts->ads->id) ? $reposts->ads->id : ''])}}">{{isset($reposts->ads->product_name) ? $reposts->ads->product_name : ''}}</a></td>
                             </tr>
                             @endforeach
                         </tbody>

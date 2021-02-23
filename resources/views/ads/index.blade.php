@@ -44,7 +44,7 @@
                             @foreach($ads as $ad)
                             <tr>
                                 <td>{{$ad->id}}</td>
-                                <td>{{$ad->appuser->user_name}}</td>
+                                <td>{{isset($ad->appuser->user_name) ? $ad->appuser->user_name : ''}}</td>
                                 <td>{{$ad->product_name}}</td>
                                 <td>{{$ad->price}}</td>
                                 <td>{{$ad->description}}</td>

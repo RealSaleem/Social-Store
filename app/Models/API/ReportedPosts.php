@@ -14,12 +14,12 @@ class ReportedPosts extends Model
 
     public function appuser()
     {
-        return $this->belongsTo(AppUser::class, 'app_user_id' , 'id');
+        return $this->belongsTo(AppUser::class, 'app_user_id' , 'id')->withTrashed();
     }
 
     public function ads()
     {
-        return $this->belongsTo(Ads::class, 'ads_id'  , 'id');
+        return $this->belongsTo(Ads::class, 'ads_id'  , 'id')->withTrashed();
     }
 
     
