@@ -49,7 +49,7 @@
                                 <td>{{$user->first_name}}</td>
                                 <td>{{$user->last_name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><img src="{{asset('storage/'.$user->image)}}" style="width: 100px; height: auto;" /></td>
+                                <td><img src="{{$user->image}}" style="width: 100px; height: auto;" /></td>
                                 <td>{{$user->phone}}</td>
                                 <td>{{isset($user->country->name_en) ? $user->country->name_en : ''}}</td>
                                 <td>{{isset($user->category->name_en) ? $user->category->name_en : ''}}</td>

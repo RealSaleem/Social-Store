@@ -31,4 +31,14 @@ class AppUser extends Authenticatable
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getImageAttribute()
+    {
+        $image = $this->attributes['image'];
+        if($image == null){
+            return null;
+        }
+        $image_path = Config('app.uploads_url').$image;
+        return $image_path;
+    }
 }

@@ -66,7 +66,7 @@
 <div class="form-group">
     <label>{{trans('site.user_image')}} :</label>
     @if(isset($appusers) && $appusers->image != null)
-    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{asset('storage/'.$appusers->image)}}" data-max-file-size="2M" />
+    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{$appusers->image}}" data-max-file-size="2M" />
     @else
     <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M" />
     @endif
