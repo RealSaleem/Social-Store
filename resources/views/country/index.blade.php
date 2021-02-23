@@ -42,7 +42,7 @@
                                 <td>{{$country->id}}</td>
                                 <td>{{$country->name_en}}</td>
                                 <td>{{$country->name_ar}}</td>
-                                <td><img src="{{asset('storage/'.$country->image)}}" style="width: 100px; height: auto;" /></td>
+                                <td><img src="{{$country->image}}" style="width: 100px; height: auto;" /></td>
                                 <!-- <td>{{date('d M Y h:i:s A',strtotime($country->created_at))}}</td> -->
                                 <td class="text-center">
                                     <div class="list-icons">

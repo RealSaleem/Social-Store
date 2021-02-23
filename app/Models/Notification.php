@@ -11,4 +11,13 @@ class Notification extends Model
     use HasFactory , SoftDeletes;
     protected $fillable = ['title' , 'description' , 'url' , 'date'];
 
+    public function getImageAttribute()
+    {
+        $image = $this->attributes['image'];
+        if($image == null){
+            return null;
+        }
+        $image_path = Config('app.uploads_url').$image;
+        return $image_path;
+    }
 }

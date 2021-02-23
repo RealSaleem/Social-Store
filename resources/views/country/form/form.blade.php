@@ -23,7 +23,7 @@
 <div class="form-group">
 <label>{{trans('site.flag_image')}} :</label>
     @if(isset($country) && $country->image != null)
-    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{asset('storage/'.$country->image)}}" data-max-file-size="2M" />
+    <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{$country->image}}" data-max-file-size="2M" />
     @else
     <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M" />
     @endif

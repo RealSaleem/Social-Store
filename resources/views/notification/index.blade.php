@@ -43,7 +43,7 @@
                                 <td>{{$notification->id}}</td>
                                 <td>{{$notification->title}}</td>
                                 <td>{{$notification->description}}</td>
-                                <td><img src="{{asset('storage/'.$notification->image)}}" style="width: 100px; height: auto;" /></td>
+                                <td><img src="{{$notification->image}}" style="width: 100px; height: auto;" /></td>
                                 <td>{{$notification->url}}</td>
                                 <td>{{date('d M Y h:i:s A',strtotime($notification->date))}}</td>
                             </tr>
