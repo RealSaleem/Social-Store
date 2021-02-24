@@ -29,7 +29,7 @@
                                 <th>{{trans('site.price')}}</th>
                                 <th>{{trans('site.bidder_name')}}</th>
                                 <th>{{trans('site.bidding_price')}}</th>
-                                <th>{{trans('site.created_at')}}</th>
+                                <th>{{trans('site.date')}}</th>
                             </tr>
                         </thead>
                         <tbody>

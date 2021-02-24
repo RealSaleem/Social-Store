@@ -153,5 +153,7 @@ return[
     'item_image'                    =>  'Item Image',
     'bidder_name'                   =>  'Bidder Name',
     'bidding_price'                 =>  'Bidding Price',
+    'date'                          =>  'Date',
+    'view_story'                    =>  'View Story',
 ]
 ?>
