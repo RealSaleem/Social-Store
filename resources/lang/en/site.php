@@ -150,5 +150,8 @@ return[
     'bids_database'                 =>  'Bids',
     'click_button'                  =>  'Click on button below to',
     'in_database'                   =>  'in your database.',
+    'item_image'                    =>  'Item Image',
+    'bidder_name'                   =>  'Bidder Name',
+    'bidding_price'                 =>  'Bidding Price',
 ]
 ?>
