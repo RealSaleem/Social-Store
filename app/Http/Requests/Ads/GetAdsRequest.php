@@ -31,7 +31,7 @@ class GetAdsRequest extends FormRequest
 
     public function handle()
     {
-        $ads =  Ads::with('appuser' , 'images')->find($this->id);
+        $ads =  Ads::with('appuser', 'images')->find($this->id);
         return $ads;
     }
 }

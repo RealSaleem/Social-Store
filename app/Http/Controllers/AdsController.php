@@ -54,7 +54,7 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(GetAdsRequest $request ,$id)
+    public function show(GetAdsRequest $request, $id)
     {
         $request->id = $id;
         $ads = $request->handle();
@@ -71,7 +71,7 @@ class AdsController extends Controller
     {
         $appusers = AppUser::get();
         $ads = Ads::with('images')->where('id', $id)->first();
-        return view('ads.form.edit', compact('ads' , 'appusers'));
+        return view('ads.form.edit', compact('ads', 'appusers'));
     }
 
     /**

@@ -13,7 +13,7 @@ return[
     'name_ar'                       =>  'Name (Ar)',
     'image'                         =>  'Image',
     'created_at'                    =>  'Created_at',
-    'action'                        =>  'Action',
+    'action'                        =>  'Actions',
     'add_category'                  =>  'Add Category',
     'edit_category'                 =>  'Edit Category',
     'delete_category'               =>  'Delete Category',
@@ -160,5 +160,7 @@ return[
     'view_details'                  =>  'View Details',
     'view_ads_details'              =>  'View Ads Details',
     'images'                        =>  'Images',
+    'view_post_history'             =>  'View Posts History',
+    'view_contactus_details'        =>  'View Contact Us Details'
 ]
 ?>

@@ -62,6 +62,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a href="{{route('user.edit',$user->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_app_user')}}</a>
+                                                <a href="" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_app_user')}}</a>
                                                 <a href="{{route('bids.index')}}" class="dropdown-item"><i class="fas fa-gavel"></i> {{trans('site.view_bids')}}</a>
                                                 <a href="{{route('stories.index')}}" class="dropdown-item"><i class="fas fa-book"></i> {{trans('site.view_stories')}}</a>
                                                 <form action="{{route('user.destroy', $user->id)}}" method="POST" class="delete-record">

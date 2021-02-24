@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Contact\GetAllContactRequest;
+use App\Http\Requests\Contact\GetContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
 use App\Models\API\Contact;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class ContactController extends Controller
     public function index(GetAllContactRequest $request)
     {
         $contacts = $request->handle();
-        return view('contact.index' , compact('contacts'));
+        return view('contact.index', compact('contacts'));
     }
 
     /**
@@ -47,9 +48,11 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(GetContactRequest $request, $id)
     {
-        //
+        $request->id = $id;
+        $contact = $request->handle();
+        return view('contact.show', compact('contact'));
     }
 
     /**
@@ -60,8 +63,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        $contacts = Contact::where('id' , $id)->first();
-        return view('contact.form.edit' , compact('contacts'));
+        $contacts = Contact::where('id', $id)->first();
+        return view('contact.form.edit', compact('contacts'));
     }
 
     /**
@@ -90,17 +93,17 @@ class ContactController extends Controller
         //
     }
 
-//     public function contactStatus($id)
-//     {
-//         $contacts = Contact::find($id);
-//         // dd($contacts);
-//         if($contacts->status == 'viewed'){
-//             $contacts->status = 'new';
-//         } else{
-//             $contacts->status = 'viewed';
-//         }
-//         $contacts->save();
-// // dd($contacts);
-//         return response()->json(['success' => true]);
-//     }
+    //     public function contactStatus($id)
+    //     {
+    //         $contacts = Contact::find($id);
+    //         // dd($contacts);
+    //         if($contacts->status == 'viewed'){
+    //             $contacts->status = 'new';
+    //         } else{
+    //             $contacts->status = 'viewed';
+    //         }
+    //         $contacts->save();
+    // // dd($contacts);
+    //         return response()->json(['success' => true]);
+    //     }
 }

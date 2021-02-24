@@ -14,7 +14,7 @@
 
 <!-- Content area -->
 <div class="content">
-@include('layouts.flash-message')
+    @include('layouts.flash-message')
     <!-- Dashboard content -->
     <div class="row">
         <div class="col-xl-12">
@@ -27,7 +27,7 @@
                 <form action="{{url('/contact')}}">
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="status">{{trans('site.select_status')}}</label>
+                            <label for="status"><strong>{{trans('site.select_status')}}</strong></label>
                             <select name="status" class="form-control">
                                 <option value="">{{trans('site.all')}}</option>
                                 <option value="new" {{request()->input('status') == 'new' ? 'selected' : null}}> {{trans('site.new')}}</option>
@@ -52,7 +52,7 @@
                                 <th>{{trans('site.email')}}</th>
                                 <th>{{trans('site.phone')}}</th>
                                 <th>{{trans('site.status')}}</th>
-                                <th>{{trans('site.message')}}</th>
+                                <!-- <th>{{trans('site.message')}}</th> -->
                                 <th class="text-center">{{trans('site.action')}}</th>
                             </tr>
                         </thead>
@@ -65,7 +65,7 @@
                                 <td>{{$contact->email}}</td>
                                 <td>{{$contact->phone}}</td>
                                 <td>{{$contact->status}}</td>
-                                <td>{{$contact->message}}</td>
+                                <!-- <td>{{$contact->message}}</td> -->
                                 <td class="text-center">
                                     <div class="list-icons">
                                         <div class="dropdown">
@@ -74,6 +74,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a href="{{route('contact.edit',$contact->id)}}" class="dropdown-item"><i class="icon-pen6"></i> {{trans('site.edit_contact_us')}}</a>
+                                                <a href="{{route('contact.show',$contact->id)}}" class="dropdown-item"><i class="icon-file-eye2"></i> {{trans('site.view_contactus_details')}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +118,7 @@
                 columnDefs: [{
                     orderable: false,
                     width: 100,
-                    targets: [7]
+                    targets: [6]
                 }],
                 dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
                 language: {
