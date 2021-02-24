@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Ads\CreateAdsRequest;
+use App\Http\Requests\Ads\GetAdsRequest;
 use App\Http\Requests\Ads\GetAllAdsRequest;
 use App\Http\Requests\Ads\UpdateAdsRequest;
 use App\Models\API\Ads;
@@ -53,9 +54,11 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(GetAdsRequest $request ,$id)
     {
-        //
+        $request->id = $id;
+        $ads = $request->handle();
+        return view('ads.show', compact('ads'));
     }
 
     /**

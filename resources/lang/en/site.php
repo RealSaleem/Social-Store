@@ -155,5 +155,10 @@ return[
     'bidding_price'                 =>  'Bidding Price',
     'date'                          =>  'Date',
     'view_story'                    =>  'View Story',
+    'sold_to'                       =>  'Sold To',
+    'selling_price'                 =>  'Selling Price',
+    'view_details'                  =>  'View Details',
+    'view_ads_details'              =>  'View Ads Details',
+    'images'                        =>  'Images',
 ]
 ?>

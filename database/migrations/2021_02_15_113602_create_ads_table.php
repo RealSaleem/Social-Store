@@ -24,6 +24,8 @@ class CreateAdsTable extends Migration
             $table->string('image' , 150)->nullable();
             $table->string('type' , 150)->nullable();
             $table->string('duration' , 150)->nullable();
+            $table->string('user_id_sold')->nullable();
+            $table->string('sold_price')->nullable();
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });
